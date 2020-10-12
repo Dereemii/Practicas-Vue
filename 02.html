@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app" class="container mt-5">
+      <div :class="['p-3', 'text-white', fondo]">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque minima
+          adipisci cum laborum repellat, perferendis non maiores consequuntur
+          asperiores nihil obcaecati ducimus quis ipsam iusto quibusdam ratione
+          amet beatae aut!
+        </p>
+      </div>
+      <input type="text" class="from-control my-3" v-model="fondo" />
+
+      <div
+        class="text-white p-3"
+        :class="{'bg-info' : color, 'bg-success' : !color }"
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+          reprehenderit nemo quasi nisi earum, voluptate neque. Illo suscipit
+          placeat aperiam, id sint, qui adipisci, commodi autem deleniti
+          molestiae veniam similique.
+        </p>
+      </div>
+
+      <button class="btn btn-primary mt-3" @click="color = !color">Cambiar</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./02.js"></script>
+  </body>
+</html>
