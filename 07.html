@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <!-- CDN de VUE -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- CDN de VUEX -->
+    <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script> 
+    <title>VUEX</title>
+</head>
+
+<body>
+    <div id="app">
+       <titulo></titulo>
+    </div>
+
+    <script>
+        Vue.component('titulo',{
+            template: //html 
+            `
+            <div>
+                <h1>numero {{ $store.state.numero }}</h1>
+                <hijo></hijo>
+            </div>
+            `
+        });
+
+        Vue.component('hijo',{
+            template: //html 
+            `
+            <div>
+                <button @click="$store.commit('aumentar')">+</button>
+                <button @click="$store.commit('reducir')">-</button>
+                <h1>numero {{ $store.state.numero }}</h1>
+            </div>
+            `
+        })
+
+        const store = new Vuex.Store({
+            state: {
+                numero: 10
+            },
+            mutations:{
+                aumentar(state){
+                    state.numero++
+                },
+                reducir(state){
+                    state.numero--
+                }
+            }
+        });
+
+
+        new Vue({
+            el: "#app",
+            store
+        });
+    </script>
+</body>
+
+</html>
